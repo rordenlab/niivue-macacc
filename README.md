@@ -7,7 +7,7 @@ This repository uses the WebGL2-based [NiiVue](https://github.com/niivue/niivue)
 You can serve a hot-reloadable web page that allows you to interactively modify the source code.
 
 ```bash
-git clone git clone git@github.com:rordenlab/niivue-macacc.git
+git clone git@github.com:rordenlab/niivue-macacc.git
 cd niivue-macacc
 npm install
 npm run dev
