@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@niivue/niivue": "^0.50.0"
+    "@niivue/niivue": "^0.51.0"
   },
   "devDependencies": {
     "vite": "^5.2.0"

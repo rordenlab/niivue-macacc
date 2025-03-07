@@ -11,8 +11,8 @@ async function main() {
   function doThreshChange() {
     let mn = threshSlider.value * 0.1
     let mx = mn + rangeSlider.value * 0.1
-    nv1.setMeshLayerProperty(nv1.meshes[0].id, 0, "cal_min", mn)
-    nv1.setMeshLayerProperty(nv1.meshes[0].id, 0, "cal_max", mx)
+    nv1.setMeshLayerProperty(nv1.meshes[0].id, 1, "cal_min", mn)
+    nv1.setMeshLayerProperty(nv1.meshes[0].id, 1, "cal_max", mx)
   }
   threshSlider.onchange = function () {
     doThreshChange()
@@ -20,8 +20,16 @@ async function main() {
   rangeSlider.onchange = function () {
     doThreshChange()
   }
+  alphaSlider.onchange = function () {
+    nv1.setMeshLayerProperty(nv1.meshes[0].id, 0, "opacity", this.value * 0.01)
+  }
   modelSelect.onchange = async function () {
     var meshLHLayersList1 = [
+      
+      {
+        url: "./aal_atlas.mz3",
+        opacity: 0.1,
+      },
       {
         url: "./areaT_26163.mz3",
         cal_min: 1.5,
@@ -35,6 +43,7 @@ async function main() {
     let mesh = './surf_reg_model_both_' + this.value + '.mz3'
       const volumeObj = { url: mesh, layers: meshLHLayersList1 }
       await nv1.loadMeshes([ volumeObj ])
+      nv1.meshes[0].layers[0].colorbarVisible = false
       doThreshChange()
   }
   colorSelect.onchange = function () {
